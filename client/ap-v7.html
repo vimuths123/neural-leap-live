@@ -156,7 +156,7 @@
     async function serverSideTracking(eventName, eventUrl, eventId) {
       await axios
         .post(
-          "/server-side-tracking",
+          "/.netlify/functions/server-side-tracking",
           {
             eventName: eventName,
             eventUrl: eventUrl,

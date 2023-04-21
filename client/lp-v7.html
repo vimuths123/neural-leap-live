@@ -226,6 +226,12 @@
         stopOnFocus: true
       }).showToast();
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.location.search) {
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+    });
   </script>
   <script>
     //Server Side Tracking Function
