@@ -33,6 +33,10 @@ async function initialize() {
       '.Label': {
           color: '#e0e0e0',
           fontSize: '20px'
+      },
+      '.Input': {
+        padding: '8px 12px !important',
+        lineHeight: '1.42857143'
       }
     }
   };
