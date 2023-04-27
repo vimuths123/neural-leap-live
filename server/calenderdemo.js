@@ -71,7 +71,8 @@ exports.handler = async (event, context) => {
 
     return {
       statusCode: 301,
-      headers: { Location: '/ap-v7.html' }
+      body: ''
+      // headers: { Location: '/ap-v7.html' }
     }
   } catch (error) {
     console.log(error.response.data.message)
