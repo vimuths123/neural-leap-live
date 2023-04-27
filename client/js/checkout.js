@@ -26,7 +26,7 @@ async function initialize() {
   const appearance = {
     theme: 'stripe',
     variables: {
-      colorText: '#fff',
+      colorText: '#e0e0e0',
       // See all possible variables below
     }
   };
