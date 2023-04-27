@@ -36,7 +36,7 @@ async function initialize() {
       },
       '.Input': {
         padding: '8px 12px !important',
-        lineHeight: '1.42857143'
+        lineHeight: '1.42857143 !important'
       }
     }
   };
