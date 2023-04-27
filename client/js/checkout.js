@@ -26,8 +26,14 @@ async function initialize() {
   const appearance = {
     theme: 'stripe',
     variables: {
-      colorText: '#e0e0e0',
+      // colorText: '#e0e0e0',
       // See all possible variables below
+    },
+    rules: {
+      '.Label': {
+          color: '#e0e0e0',
+          fontSize: '20px'
+      }
     }
   };
   elements = stripe.elements({ appearance, clientSecret });
