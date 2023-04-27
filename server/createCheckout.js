@@ -8,23 +8,32 @@ const calculateOrderAmount = (items) => {
 };
 
 exports.handler = async (event) => {
+  try {
+    const { items } = JSON.parse(event.body);
 
-  const { items } = JSON.parse(event.body);
+    // Create a PaymentIntent with the order amount and currency
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: calculateOrderAmount(items),
+      currency: "usd",
+      payment_method_types: [
+        'us_bank_account', 'card'
+      ]
+    });
 
-  // Create a PaymentIntent with the order amount and currency
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: calculateOrderAmount(items),
-    currency: "usd",
-    payment_method_types: [
-      'us_bank_account', 'card'
-    ]
-  });  
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        clientSecret: paymentIntent.client_secret,
+      }),
+    };
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      clientSecret: paymentIntent.client_secret,
-    }),
-  };
+  } catch (err) {
+    console.log(err);
+    return {
+      statusCode: 200,
+      body: ''
+    };
+  }
+
 };
 
